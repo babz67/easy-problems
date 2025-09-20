@@ -5,6 +5,7 @@
             "name": "Debug C++ file",
             "type": "cppdbg",
             "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "stopAtEntry": false,
             "externalConsole": false,
             "cwd": "${fileDirname}",
