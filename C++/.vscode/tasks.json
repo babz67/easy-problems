@@ -4,7 +4,14 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            // Common arguments for both OS
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -12,21 +19,22 @@
                 "-Wall",
                 "-Wextra",
                 "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "-o"
             ],
-            "options": {
-                "cwd": "C:\\MinGW\\winlibs-x86_64-posix-seh-gcc-15.2.0-mingw-w64ucrt-13.0.0-r1\\mingw64\\bin"
+            // Windows-specific settings
+            "windows": {
+                "command": "g++",
+                "args": [
+                    "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                ]
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "Build without sanitizers for MinGW"
+            // Linux-specific settings
+            "linux": {
+                "command": "g++",
+                "args": [
+                    "${fileDirname}/${fileBasenameNoExtension}"
+                ]
+            }
         }
-    ],
-
+    ]
 }
