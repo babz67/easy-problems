@@ -2,17 +2,31 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C++ Run",
+            "name": "C/C++: g++ build and debug active file (Windows)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}${if:windows}.exe",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/MinGW/winlibs-x86_64-posix-seh-gcc-15.2.0-mingw-w64ucrt-13.0.0-r1/mingw64/bin/gdb.exe",
+            "preLaunchTask": "C/C++: g++ build active file"
+        },
+        {
+            "name": "C/C++: g++ build and debug active file (Linux)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "${if:windows}C:/MinGW/winlibs-x86_64-posix-seh-gcc-15.2.0-mingw-w64ucrt-13.0.0-r1/mingw64/bin/gdb.exe${if:linux}/usr/bin/gdb",
-            "preLaunchTask": "C/C++: g++ build active file"
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "C/C++: g++ build active file",
         }
     ]
 }
+
